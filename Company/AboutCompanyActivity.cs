@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 
 namespace Company
@@ -15,32 +10,47 @@ namespace Company
     [Activity(Label = "AboutCompanyActivity")]
     public class AboutCompanyActivity : Activity
     {
+        private TextView versionTextView;
+        private TextView descTextView;
+
+        private TextView websiteTextView;
+        private TextView contactsTextView;
+        private TextView socialTextView;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             SetContentView(Resource.Layout.activity_about_company);
 
-            // Create your application here
+            versionTextView = FindViewById<TextView>(Resource.Id.VersionTextView);
+            descTextView = FindViewById<TextView>(Resource.Id.DescriptionTextView);
 
-            Company company = GetIntentData();
+            websiteTextView = FindViewById<TextView>(Resource.Id.WebsiteTextView);
+            contactsTextView = FindViewById<TextView>(Resource.Id.ContactsTextView);
+            socialTextView = FindViewById<TextView>(Resource.Id.SocialTextView);
 
-            FillFieldsCompanyActivity(company);
+            FillFieldsCompanyActivity();
+            FillWebsiteTextViews();
 
-            var websiteButton = FindViewById<Button>(Resource.Id.WebsiteButton);
-            var contactsButton = FindViewById<Button>(Resource.Id.ContactsButton);
-            var socialButton = FindViewById<Button>(Resource.Id.SocialButton);
+            var moveBackToolbar = FindViewById<Toolbar>(Resource.Id.MoveBackToolBar);
+            moveBackToolbar.Click += MoveBackToolbar_Click;
 
-            //var switcher = FindViewById<Switch>(Resource.Id.Switcher);
+            var textSwitcher = FindViewById<Switch>(Resource.Id.TextSwitcher);
+            textSwitcher.Click += TextSwitcher_Click;
 
-            websiteButton.Click += GoToWebsite_Click;
-            contactsButton.Click += GoToWebsite_Click;
-            socialButton.Click += GoToWebsite_Click;
+            websiteTextView.Click += MoveToWebsite_Click;
+            contactsTextView.Click += MoveToWebsite_Click;
+            socialTextView.Click += MoveToWebsite_Click;
         }
 
-        private void GoToWebsite_Click(object sender, EventArgs e)
+        private void MoveBackToolbar_Click(object sender, EventArgs e)
         {
-            string url = Intent.GetStringExtra("web");
+            Finish();
+        }
+
+        private void MoveToWebsite_Click(object sender, EventArgs e)
+        {
+            string url = websiteTextView.Text;
 
             if (!url.StartsWith("http://") && !url.StartsWith("https://"))
                 url = "http://" + url;
@@ -49,25 +59,38 @@ namespace Company
             StartActivity(browserIntent);
         }
 
-        private void FillFieldsCompanyActivity(Company company)
+        private void TextSwitcher_Click(object sender, EventArgs e)
         {
-            var versionEditText = FindViewById<EditText>(Resource.Id.VersionEditText);
-            var descEditText = FindViewById<EditText>(Resource.Id.DescriptionEditText);
+            var switcher = sender as Switch;
+            if(switcher.Checked)
+            {
+                versionTextView.Text = "Version";
+                descTextView.Text = "Description";
 
-            versionEditText.Text = company.Version;
-            descEditText.Text = company.Description;
+                websiteTextView.Text = "Website";
+                contactsTextView.Text = "Contacts";
+                socialTextView.Text = "Social";
+            }
+            else
+            {
+                FillFieldsCompanyActivity();
+                FillWebsiteTextViews();
+            }
         }
 
-        private Company GetIntentData()
+        private void FillFieldsCompanyActivity()
         {
-            var company = new Company
-            {
-                Description = Intent.GetStringExtra("desc"),
-                Version = Intent.GetStringExtra("vers"),
-                Website = Intent.GetStringExtra("web"),
-            };
+            descTextView.Text = Intent.GetStringExtra("desc");
+            versionTextView.Text = Intent.GetStringExtra("version");
+        }
 
-            return company;
+        private void FillWebsiteTextViews()
+        {
+            var link = Intent.GetStringExtra("web");
+
+            websiteTextView.Text = link;
+            contactsTextView.Text = link;
+            socialTextView.Text = link;
         }
     }
 }

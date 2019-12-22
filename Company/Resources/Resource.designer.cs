@@ -3130,82 +3130,85 @@ namespace Company
 			public const int avd_show_password = 2131165275;
 			
 			// aapt resource value: 0x7F07005C
-			public const int design_bottom_navigation_item_background = 2131165276;
+			public const int ButtonStyle = 2131165276;
 			
 			// aapt resource value: 0x7F07005D
-			public const int design_fab_background = 2131165277;
+			public const int design_bottom_navigation_item_background = 2131165277;
 			
 			// aapt resource value: 0x7F07005E
-			public const int design_ic_visibility = 2131165278;
+			public const int design_fab_background = 2131165278;
 			
 			// aapt resource value: 0x7F07005F
-			public const int design_ic_visibility_off = 2131165279;
+			public const int design_ic_visibility = 2131165279;
 			
 			// aapt resource value: 0x7F070060
-			public const int design_password_eye = 2131165280;
+			public const int design_ic_visibility_off = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int design_snackbar_background = 2131165281;
+			public const int design_password_eye = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int ic_mtrl_chip_checked_black = 2131165282;
+			public const int design_snackbar_background = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int ic_mtrl_chip_checked_circle = 2131165283;
+			public const int ic_mtrl_chip_checked_black = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int ic_mtrl_chip_close_circle = 2131165284;
+			public const int ic_mtrl_chip_checked_circle = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int mtrl_snackbar_background = 2131165285;
+			public const int ic_mtrl_chip_close_circle = 2131165285;
 			
 			// aapt resource value: 0x7F070066
-			public const int mtrl_tabs_default_indicator = 2131165286;
+			public const int mtrl_snackbar_background = 2131165286;
 			
 			// aapt resource value: 0x7F070067
-			public const int navigation_empty_icon = 2131165287;
+			public const int mtrl_tabs_default_indicator = 2131165287;
 			
 			// aapt resource value: 0x7F070068
-			public const int notification_action_background = 2131165288;
+			public const int navigation_empty_icon = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int notification_bg = 2131165289;
+			public const int notification_action_background = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int notification_bg_low = 2131165290;
+			public const int notification_bg = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int notification_bg_low_normal = 2131165291;
+			public const int notification_bg_low = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int notification_bg_low_pressed = 2131165292;
+			public const int notification_bg_low_normal = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int notification_bg_normal = 2131165293;
+			public const int notification_bg_low_pressed = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int notification_bg_normal_pressed = 2131165294;
+			public const int notification_bg_normal = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int notification_icon_background = 2131165295;
+			public const int notification_bg_normal_pressed = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int notification_template_icon_bg = 2131165296;
+			public const int notification_icon_background = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int notification_template_icon_low_bg = 2131165297;
+			public const int notification_template_icon_bg = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int notification_tile_bg = 2131165298;
+			public const int notification_template_icon_low_bg = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int notify_panel_notification_icon_bg = 2131165299;
+			public const int notification_tile_bg = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int tooltip_frame_dark = 2131165300;
+			public const int notify_panel_notification_icon_bg = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int tooltip_frame_light = 2131165301;
+			public const int tooltip_frame_dark = 2131165301;
+			
+			// aapt resource value: 0x7F070076
+			public const int tooltip_frame_light = 2131165302;
 			
 			static Drawable()
 			{
@@ -3353,7 +3356,7 @@ namespace Company
 			public const int collapseActionView = 2131230780;
 			
 			// aapt resource value: 0x7F080003
-			public const int ContactsButton = 2131230723;
+			public const int ContactsTextView = 2131230723;
 			
 			// aapt resource value: 0x7F08003D
 			public const int container = 2131230781;
@@ -3520,6 +3523,9 @@ namespace Company
 			// aapt resource value: 0x7F08006D
 			public const int mini = 2131230829;
 			
+			// aapt resource value: 0x7F080009
+			public const int MoveBackToolBar = 2131230729;
+			
 			// aapt resource value: 0x7F08006E
 			public const int mtrl_child_content_container = 2131230830;
 			
@@ -3535,8 +3541,8 @@ namespace Company
 			// aapt resource value: 0x7F080072
 			public const int never = 2131230834;
 			
-			// aapt resource value: 0x7F080009
-			public const int NextButton = 2131230729;
+			// aapt resource value: 0x7F08000A
+			public const int NextButton = 2131230730;
 			
 			// aapt resource value: 0x7F080073
 			public const int none = 2131230835;
@@ -3649,8 +3655,8 @@ namespace Company
 			// aapt resource value: 0x7F080096
 			public const int select_dialog_listview = 2131230870;
 			
-			// aapt resource value: 0x7F08000A
-			public const int SHIFT = 2131230730;
+			// aapt resource value: 0x7F08000B
+			public const int SHIFT = 2131230731;
 			
 			// aapt resource value: 0x7F080098
 			public const int shortcut = 2131230872;
@@ -3679,8 +3685,8 @@ namespace Company
 			// aapt resource value: 0x7F0800A0
 			public const int snapMargins = 2131230880;
 			
-			// aapt resource value: 0x7F08000C
-			public const int SocialButton = 2131230732;
+			// aapt resource value: 0x7F08000D
+			public const int SocialTextView = 2131230733;
 			
 			// aapt resource value: 0x7F0800A1
 			public const int spacer = 2131230881;
@@ -3709,11 +3715,8 @@ namespace Company
 			// aapt resource value: 0x7F0800A9
 			public const int submit_area = 2131230889;
 			
-			// aapt resource value: 0x7F08000D
-			public const int Switcher = 2131230733;
-			
-			// aapt resource value: 0x7F08000B
-			public const int SYM = 2131230731;
+			// aapt resource value: 0x7F08000C
+			public const int SYM = 2131230732;
 			
 			// aapt resource value: 0x7F0800AA
 			public const int tabMode = 2131230890;
@@ -3750,6 +3753,9 @@ namespace Company
 			
 			// aapt resource value: 0x7F0800B2
 			public const int textStart = 2131230898;
+			
+			// aapt resource value: 0x7F08000E
+			public const int TextSwitcher = 2131230734;
 			
 			// aapt resource value: 0x7F0800B3
 			public const int text_input_password_toggle = 2131230899;
@@ -3802,20 +3808,17 @@ namespace Company
 			// aapt resource value: 0x7F0800C6
 			public const int useLogo = 2131230918;
 			
-			// aapt resource value: 0x7F08000E
-			public const int VersionEditText = 2131230734;
-			
 			// aapt resource value: 0x7F08000F
-			public const int VersionTextView = 2131230735;
+			public const int VersionEditText = 2131230735;
+			
+			// aapt resource value: 0x7F080010
+			public const int VersionTextView = 2131230736;
 			
 			// aapt resource value: 0x7F0800C7
 			public const int view_offset_helper = 2131230919;
 			
 			// aapt resource value: 0x7F0800C8
 			public const int visible = 2131230920;
-			
-			// aapt resource value: 0x7F080010
-			public const int WebsiteButton = 2131230736;
 			
 			// aapt resource value: 0x7F080011
 			public const int WebsiteEditText = 2131230737;
@@ -4135,7 +4138,7 @@ namespace Company
 		{
 			
 			// aapt resource value: 0x7F0D0000
-			public const int logo = 2131558400;
+			public const int msg = 2131558400;
 			
 			static Raw()
 			{

@@ -1,92 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?>
-<GridLayout 
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp">
+    android:orientation="vertical">
 
     <LinearLayout
-        android:gravity="top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-          <EditText
-            android:id="@+id/VersionEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"/>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+        <Toolbar
+            android:id="@+id/MoveBackToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:title="Back"
+            android:background="#000000"
+            android:titleTextColor="#ffffff"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@raw/msg"/>
+        <TextView
+            android:id="@+id/VersionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center">
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <EditText
-              android:id="@+id/DescriptionEditText"
+            <TextView
+                android:id="@+id/DescriptionTextView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"/>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp">
+            </TextView>
         </ScrollView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_gravity="center">
-        <Button
-            android:id="@+id/WebsiteButton"
-            android:text="Website"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/ContactsButton"
-            android:text="Contacts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/SocialButton"
-            android:text="Social"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:src="@raw/msg"/>
+            <TextView
+                android:id="@+id/WebsiteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:maxLines="2"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:ellipsize="end"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:src="@raw/msg"/>
+            <TextView
+                android:id="@+id/ContactsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:maxLines="2"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:ellipsize="end"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:src="@raw/msg"/>
+            <TextView
+                android:id="@+id/SocialTextView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:maxLines="2"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:ellipsize="end"/>
+        </LinearLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"        
-        android:orientation="vertical"
-        android:gravity="center">
-        <Switch
-            android:id="@+id/Switcher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/NextButton"
-            android:text="Next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Switch
+                android:id="@+id/TextSwitcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent ="true"
+                android:layout_centerVertical="true"
+                android:checked="false">
+            </Switch>
+        </RelativeLayout>
     </LinearLayout>
-  
-    <!--<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:background="#ff0000">
-        <EditText
-            android:text="Copyright © 2019 All rights jaidjaisdjiasjijaisdjasjidasjidjiasjida
-            sjidjisajidasjidasjidsajidsi"
-            android:singleLine="false"
-            android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="2"
-            android:minLines="2"
-            android:inputType="text" />
-    </LinearLayout>-->
-
-</GridLayout>
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:maxLines="2"/>
+    </LinearLayout>
+</LinearLayout>

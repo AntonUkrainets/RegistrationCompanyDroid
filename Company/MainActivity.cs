@@ -20,68 +20,104 @@ namespace Company
             SetContentView(Resource.Layout.activity_main);
 
             var nextButton = FindViewById<Button>(Resource.Id.NextButton);
-            nextButton.Click += NextButton_Click; ;
+            nextButton.Click += NextButton_Click;
+        }
+
+        private void ResetForm()
+        {
+            ClearFieldErrorState(Resource.Id.DescriptionTextView);
+            ClearFieldErrorState(Resource.Id.VersionTextView);
+            ClearFieldErrorState(Resource.Id.WebsiteTextView);
+        }
+
+        private void ClearFieldErrorState(int textViewId)
+        {
+            var textView = FindViewById<TextView>(textViewId);
+
+            textView.Visibility = ViewStates.Invisible;
+            textView.SetTextColor(Color.Transparent);
+        }
+
+        private void SetFieldErrorState(int textViewId)
+        {
+            var textView = FindViewById<TextView>(textViewId);
+
+            textView.Visibility = ViewStates.Visible;
+            textView.SetTextColor(Color.Red);
+        }
+
+        private bool ValidateForm()
+        {
+            var isValid = true;
+
+            if (IsTextFieldEmpty(Resource.Id.DescriptionEditText))
+            {
+                isValid = false;
+                SetFieldErrorState(Resource.Id.DescriptionTextView);
+            }
+
+            if (IsTextFieldEmpty(Resource.Id.VersionEditText))
+            {
+                isValid = false;
+                SetFieldErrorState(Resource.Id.VersionTextView);
+            }
+
+            if (IsTextFieldEmpty(Resource.Id.WebsiteEditText))
+            {
+                isValid = false;
+                SetFieldErrorState(Resource.Id.WebsiteTextView);
+            }
+
+            {
+                var IsAgreedCheckBox = FindViewById<CheckBox>(Resource.Id.IsAgreedCheckBox);
+                var agreedTextView = FindViewById<TextView>(Resource.Id.AgreedTextView);
+
+                if (!IsAgreedCheckBox.Checked)
+                {
+                    agreedTextView.SetTextColor(Color.Red);
+                    isValid = false;
+                }
+                else
+                {
+                    agreedTextView.SetTextColor(Color.Gray);
+                }
+            }
+
+            return isValid;
         }
 
         private void NextButton_Click(object sender, System.EventArgs e)
         {
-            HaveEmptyFields(Resource.Id.DescriptionEditText, Resource.Id.DescriptionTextView);
-            HaveEmptyFields(Resource.Id.VersionEditText, Resource.Id.VersionTextView);
-            HaveEmptyFields(Resource.Id.WebsiteEditText, Resource.Id.WebsiteTextView);
+            ResetForm();
 
+            var formIsValid = ValidateForm();
+
+            if (!formIsValid)
+                return;
+
+            NavigateToCompanyActivity();
+        }
+
+        private void NavigateToCompanyActivity()
+        {
             var descriptionEditText = FindViewById<EditText>(Resource.Id.DescriptionEditText);
             var versionEditText = FindViewById<EditText>(Resource.Id.VersionEditText);
             var websiteEditText = FindViewById<EditText>(Resource.Id.WebsiteEditText);
 
-            var IsAgreedCheckBox = FindViewById<CheckBox>(Resource.Id.IsAgreedCheckBox);
-            var agreedTextView = FindViewById<TextView>(Resource.Id.AgreedTextView);
-
-            if (!IsAgreedCheckBox.Checked)
-            {
-                agreedTextView.SetTextColor(Color.Red);
-                return;
-            }
-            else
-            {
-                agreedTextView.SetTextColor(Color.Transparent);
-            }
-
-            //var company = new Company
-            //{
-            //    Description = descriptionEditText.Text,
-            //    Version = versionEditText.Text,
-            //    Website = websiteEditText.Text
-            //};
-
             Intent intent = new Intent(this, typeof(AboutCompanyActivity));
 
             intent.PutExtra("desc", descriptionEditText.Text);
-            intent.PutExtra("vers", versionEditText.Text);
+            intent.PutExtra("version", versionEditText.Text);
             intent.PutExtra("web", websiteEditText.Text);
 
-            TransitionToCompanyActivity(intent);
-        }
-
-        private void TransitionToCompanyActivity(Intent intent)
-        {
             StartActivity(intent);
         }
 
-        private void HaveEmptyFields(int editText, int textView)
+        private bool IsTextFieldEmpty(int editTextId)
         {
-            var value1 = FindViewById<EditText>(editText);
-            var value2 = FindViewById<TextView>(textView);
+            var editText = FindViewById<EditText>(editTextId);
 
-            if (string.IsNullOrWhiteSpace(value1.Text))
-            {
-                value2.Visibility = ViewStates.Visible;
-                value2.SetTextColor(Color.Red);
-            }
-            else
-            {
-                value2.Visibility = ViewStates.Invisible;
-                value2.SetTextColor(Color.Transparent);
-            }
+            return string.IsNullOrWhiteSpace(editText.Text);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
